@@ -1,0 +1,779 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jardins São Paulo - Jardinagem Profissional em Cascais</title>
+    <meta name="description" content="Serviços profissionais de jardinagem, paisagismo e manutenção de áreas verdes. Atendemos em Cascais e região desde 2022 com experiência desde 2019 em Londres.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #2e7d32;
+            --secondary-color: #8bc34a;
+            --accent-color: #795548;
+            --light-color: #f5f5f5;
+            --dark-color: #263238;
+            --text-color: #333333;
+            --white: #ffffff;
+            --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--white);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            background-color: var(--white);
+            box-shadow: var(--shadow);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+        }
+
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-link {
+            text-decoration: none;
+            color: var(--text-color);
+            font-weight: 500;
+            transition: var(--transition);
+        }
+
+        .nav-link:hover {
+            color: var(--primary-color);
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--primary-color);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url('https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/6dcc0b7a-db34-4ce0-8225-1097bbf6eea2.png');
+            background-size: cover;
+            background-position: center;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            color: var(--white);
+            text-align: center;
+            margin-top: 80px;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 1rem 2rem;
+            background-color: var(--primary-color);
+            color: var(--white);
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: 600;
+            transition: var(--transition);
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            background-color: var(--secondary-color);
+            transform: translateY(-2px);
+        }
+
+        /* Sections */
+        section {
+            padding: 5rem 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            color: var(--primary-color);
+        }
+
+        .section-subtitle {
+            text-align: center;
+            margin-bottom: 3rem;
+            color: var(--text-color);
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* About */
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .about-image {
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+        }
+
+        .about-image img {
+            width: 100%;
+            height: auto;
+            transition: var(--transition);
+        }
+
+        .about-image img:hover {
+            transform: scale(1.05);
+        }
+
+        .about-text h3 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+
+        /* Services */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .service-card {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .service-icon {
+            font-size: 3rem;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+
+        .service-card h3 {
+            margin-bottom: 1rem;
+            color: var(--primary-color);
+        }
+
+        /* Process */
+        .process-steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .step {
+            text-align: center;
+            padding: 2rem;
+            background: var(--light-color);
+            border-radius: 10px;
+        }
+
+        .step-number {
+            width: 50px;
+            height: 50px;
+            background: var(--primary-color);
+            color: var(--white);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1rem;
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+        /* Tips */
+        .tips-container {
+            background: var(--light-color);
+            padding: 3rem;
+            border-radius: 10px;
+            margin-top: 2rem;
+        }
+
+        .tip-item {
+            margin-bottom: 1.5rem;
+            padding-left: 2rem;
+            position: relative;
+        }
+
+        .tip-item:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: var(--primary-color);
+            font-weight: bold;
+        }
+
+        /* Portfolio */
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .portfolio-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 10px;
+            height: 300px;
+        }
+
+        .portfolio-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+
+        .portfolio-item:hover img {
+            transform: scale(1.1);
+        }
+
+        .portfolio-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(transparent, rgba(0, 0, 0, 0.8));
+            padding: 2rem;
+            color: var(--white);
+            transform: translateY(100%);
+            transition: var(--transition);
+        }
+
+        .portfolio-item:hover .portfolio-overlay {
+            transform: translateY(0);
+        }
+
+        /* Contact */
+        .contact-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+        }
+
+        .contact-info {
+            background: var(--light-color);
+            padding: 2rem;
+            border-radius: 10px;
+        }
+
+        .info-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .info-icon {
+            margin-right: 1rem;
+            color: var(--primary-color);
+            font-size: 1.2rem;
+            width: 30px;
+        }
+
+        .contact-form {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: var(--shadow);
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 0.8rem;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-family: inherit;
+        }
+
+        textarea.form-control {
+            height: 120px;
+            resize: vertical;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--dark-color);
+            color: var(--white);
+            padding: 3rem 0;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .footer-section h3 {
+            margin-bottom: 1rem;
+            color: var(--secondary-color);
+        }
+
+        .footer-social {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .social-link {
+            color: var(--white);
+            font-size: 1.5rem;
+            transition: var(--transition);
+        }
+
+        .social-link:hover {
+            color: var(--secondary-color);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            margin-top: 2rem;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-menu {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background: var(--white);
+                flex-direction: column;
+                padding: 1rem;
+                box-shadow: var(--shadow);
+            }
+
+            .nav-menu.active {
+                display: flex;
+            }
+
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .about-content {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-container {
+                grid-template-columns: 1fr;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container nav-container">
+            <a href="#" class="logo">Jardins São Paulo</a>
+            <button class="mobile-menu-btn" id="mobileMenuBtn">
+                <i class="fas fa-bars"></i>
+            </button>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="#home" class="nav-link">Início</a></li>
+                <li><a href="#about" class="nav-link">Sobre</a></li>
+                <li><a href="#services" class="nav-link">Serviços</a></li>
+                <li><a href="#process" class="nav-link">Como Funciona</a></li>
+                <li><a href="#tips" class="nav-link">Dicas</a></li>
+                <li><a href="#portfolio" class="nav-link">Portfólio</a></li>
+                <li><a href="#contact" class="nav-link">Contato</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container hero-content">
+            <h1>Transformamos Seu Espaço Verde com Paixão</h1>
+            <p>Serviços profissionais de jardinagem e paisagismo em Cascais e região. Experiência desde 2019 em Londres e agora trazendo qualidade para Portugal.</p>
+            <a href="#contact" class="btn">Solicitar Visita Gratuita</a>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <h2 class="section-title">Nossa História</h2>
+            <div class="about-content">
+                <div class="about-image">
+                    <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/7250bcb4-ad65-4478-8fc9-04c5d45b8924.png" alt="Equipe de jardinagem profissional trabalhando em projeto paisagístico moderno em Londres" onerror="this.style.display='none'">
+                </div>
+                <div class="about-text">
+                    <h3>JARDINS SÃO PAULO</h3>
+                    <p>Iniciamos nossos atendimentos em Londres 2019, participando em projetos paisagísticos, construção de jardins, manutenções, decks e outros serviços relacionados. A designer de jardins Miriam Go Paul nos instruiu em muitos trabalhos, impulsionando nossa carreira na jardinagem.</p>
+                    <p>Durante o período da COVID, a jardinagem revelou-se um serviço essencial que permitia manter o distanciamento social necessário. Dessa forma, demonstramos nosso compromisso atendendo a muitos clientes na região do Norte de Londres.</p>
+                    <p>Desde 2022, estamos estabelecidos na região de Cascais, onde temos o prazer de atender os jardins do começo ao fim do projeto - desde o projeto 2D até as manutenções do seu espaço verde.</p>
+                    <p>Buscamos sempre aperfeiçoar nossos serviços com seriedade e comprometimento, evoluindo em muitos aspectos desde o atendimento até a entrega do projeto final.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="services">
+        <div class="container">
+            <h2 class="section-title">Nossos Serviços</h2>
+            <p class="section-subtitle">Oferecemos soluções completas para transformar e manter seu espaço verde com excelência e profissionalismo</p>
+            
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-tree"></i>
+                    </div>
+                    <h3>Corte de Árvores e Sebes</h3>
+                    <p>Poda técnica e segura de árvores e sebes, garantindo saúde vegetal e segurança.</p>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-leaf"></i>
+                    </div>
+                    <h3>Relva e Arbustos</h3>
+                    <p>Colocação e manutenção profissional de relva natural e artificial, além de cuidados com arbustos.</p>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-seedling"></i>
+                    </div>
+                    <h3>Plantio e Adubagem</h3>
+                    <p>Adubagem especializada e plantio de flores e plantas selecionadas para seu jardim.</p>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-cut"></i>
+                    </div>
+                    <h3>Podas Especializadas</h3>
+                    <p>Podas técnicas de flores e plantas para manter a saúde e estética do seu jardim.</p>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-spa"></i>
+                    </div>
+                    <h3>Preparação de Canteiros</h3>
+                    <p>Preparação profissional de canteiros para plantio, garantindo condições ideais.</p>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-hammer"></i>
+                    </div>
+                    <h3>Decks e Carpintaria</h3>
+                    <p>Instalação de decks e outros trabalhos de carpintaria para áreas externas.</p>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-paint-roller"></i>
+                    </div>
+                    <h3>Pintura e Manutenção</h3>
+                    <p>Pintura e manutenção completa de áreas externas, incluindo estruturas e mobiliário.</p>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-tools"></i>
+                    </div>
+                    <h3>Projetos Personalizados</h3>
+                    <p>Desenvolvimento de projetos paisagísticos 2D personalizados para seu espaço.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Process Section -->
+    <section id="process" class="process">
+        <div class="container">
+            <h2 class="section-title">Como Funciona</h2>
+            <p class="section-subtitle">Nosso processo é simples, transparente e focado em entender suas necessidades</p>
+            
+            <div class="process-steps">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <h3>Primeiro Contato</h3>
+                    <p>Você entra em contato e agendamos uma primeira visita técnica SEM CUSTO para conhecer seu espaço.</p>
+                </div>
+
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <h3>Visita Técnica</h3>
+                    <p>Fazemos medições, fotos e conversamos para entender suas necessidades e expectativas.</p>
+                </div>
+
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <h3>Orçamento</h3>
+                    <p>Em 3-5 dias úteis, enviamos um orçamento detalhado e transparente para sua aprovação.</p>
+                </div>
+
+                <div class="step">
+                    <div class="step-number">4</div>
+                    <h3>Execução</h3>
+                    <p>Com o projeto aprovado, criamos um planejamento e iniciamos os trabalhos com excelência.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tips Section -->
+    <section id="tips" class="tips">
+        <div class="container">
+            <h2 class="section-title">Dicas para Contratar</h2>
+            <p class="section-subtitle">Informações importantes que todo cliente deve considerar antes de iniciar um projeto</p>
+            
+            <div class="tips-container">
+                <div class="tip-item">
+                    <h3>Defina o Problema</h3>
+                    <p>Pense qual o problema que deve ser solucionado pelo profissional. Seja claro sobre suas expectativas.</p>
+                </div>
+
+                <div class="tip-item">
+                    <h3>Medidas do Espaço</h3>
+                    <p>Tenha em mente as dimensões aproximadas do espaço que deseja transformar.</p>
+                </div>
+
+                <div class="tip-item">
+                    <h3>Condições Existentes</h3>
+                    <p>Considere as condições atuais do jardim ou área externa - solo, iluminação, acesso à água.</p>
+                </div>
+
+                <div class="tip-item">
+                    <h3>Histórico do Profissional</h3>
+                    <p>Sempre verifique o histórico de trabalhos realizados, revisões ou recomendações.</p>
+                </div>
+
+                <div class="tip-item">
+                    <h3>Orçamento Detalhado</h3>
+                    <p>Para trabalhos pontuais, opte por orçamentar o projeto específico, pois há sempre particularidades diferentes.</p>
+                </div>
+
+                <div class="tip-item">
+                    <h3>Manutenção Contínua</h3>
+                    <p>Para serviços de manutenção, considere um valor fixo mensal que pode ser mais vantajoso.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+   <!-- ... (todo o código anterior permanece igual até a seção Portfólio) -->
+
+    <!-- Portfolio Section -->
+    <section id="portfolio" class="portfolio">
+        <div class="container">
+            <h2 class="section-title">Nossos Trabalhos</h2>
+            <p class="section-subtitle">Alguns dos projetos que realizamos com orgulho e dedicação</p>
+            
+            <div class="portfolio-grid">
+                <div class="portfolio-item">
+                    <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/4fc2d327-c36b-450a-ae60-71a348e58e40.png" alt="Jardim residencial moderno com deck de madeira e plantas nativas em Londres" onerror="this.style.display='none'">
+                    <div class="portfolio-overlay">
+                        <h3>Jardim Residencial - Londres</h3>
+                        <p>Projeto completo com deck e paisagismo</p>
+                    </div>
+                </div>
+
+                <div class="portfolio-item">
+                    <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/3b2bbf99-db91-42d9-aa46-22d12def72c9.png" alt="Manutenção de grande área verde em condomínio com relva bem cuidada" onerror="this.style.display='none'">
+                    <div class="portfolio-overlay">
+                        <h3>Condomínio - Norte de Londres</h3>
+                        <p>Manutenção mensal de áreas verdes</p>
+                    </div>
+                </div>
+
+                <div class="portfolio-item">
+                    <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/9f67c2cf-a339-4202-aa5f-2497d1be1d26.png" alt="Pátio com relva artificial e área de convívio em Cascais" onerror="this.style.display='none'">
+                    <div class="portfolio-overlay">
+                        <h3>Pátio Residencial - Cascais</h3>
+                        <p>Instalação de relva artificial e paisagismo</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2 class="section-title">Contato</h2>
+            <p class="section-subtitle">Entre em contato conosco para agendar sua visita técnica gratuita ou tirar dúvidas</p>
+            
+            <div class="contact-container">
+                <!-- Informações de contato -->
+                <div class="contact-info">
+                    <div class="info-item">
+                        <i class="fas fa-phone info-icon"></i>
+                        <span>+351 912 345 678</span>
+                    </div>
+                    <div class="info-item">
+                        <i class="fas fa-envelope info-icon"></i>
+                        <span>contato@jardinssaopaulo.pt</span>
+                    </div>
+                    <div class="info-item">
+                        <i class="fas fa-map-marker-alt info-icon"></i>
+                        <span>Cascais, Portugal</span>
+                    </div>
+                    <div class="info-item">
+                        <i class="fab fa-instagram info-icon"></i>
+                        <a href="https://instagram.com/jardinssaopaulopt" target="_blank" rel="noopener" style="color: var(--primary-color); text-decoration: none;">@jardinssaopaulopt</a>
+                    </div>
+                </div>
+
+                <!-- Formulário de contato -->
+                <form class="contact-form" id="contactForm" action="#" method="POST" onsubmit="return handleSubmit(event)">
+                    <div class="form-group">
+                        <label for="name">Nome</label>
+                        <input type="text" id="name" name="name" class="form-control" placeholder="Seu nome" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">E-mail</label>
+                        <input type="email" id="email" name="email" class="form-control" placeholder="Seu e-mail" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Mensagem</label>
+                        <textarea id="message" name="message" class="form-control" placeholder="Escreva sua mensagem" required></textarea>
+                    </div>
+                    <button type="submit" class="btn">Enviar Mensagem</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container footer-content">
+            <div class="footer-section">
+                <h3>Jardins São Paulo</h3>
+                <p>Transformando seu espaço verde com paixão e profissionalismo desde 2019.</p>
+            </div>
+            <div class="footer-section">
+                <h3>Contato</h3>
+                <p><i class="fas fa-phone"></i> +351 912 345 678</p>
+                <p><i class="fas fa-envelope"></i> contato@jardinssaopaulo.pt</p>
+                <p><i class="fas fa-map-marker-alt"></i> Cascais, Portugal</p>
+            </div>
+            <div class="footer-section">
+                <h3>Siga-nos</h3>
+                <div class="footer-social">
+                    <a href="https://instagram.com/jardinssaopaulopt" target="_blank" rel="noopener" class="social-link" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2024 Jardins São Paulo. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const navMenu = document.getElementById('navMenu');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+        });
+
+        // Form submission handler (exemplo simples)
+        function handleSubmit(event) {
+            event.preventDefault();
+            alert('Mensagem enviada com sucesso! Entraremos em contato em breve.');
+            document.getElementById('contactForm').reset();
+            return false;
+        }
+    </script>
+</body>
+</html>
+
